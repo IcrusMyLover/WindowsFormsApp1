@@ -30,6 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.SendGroupBox = new System.Windows.Forms.GroupBox();
+            this.ResetCmdButton = new System.Windows.Forms.Button();
+            this.SendCMDButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.IntervalCheck = new System.Windows.Forms.CheckBox();
+            this.IntervalTime = new System.Windows.Forms.TextBox();
+            this.HEXDisplay = new System.Windows.Forms.CheckBox();
+            this.HEXSend = new System.Windows.Forms.CheckBox();
+            this.CMDParm1Box = new System.Windows.Forms.TextBox();
+            this.CMDParm2Box = new System.Windows.Forms.TextBox();
+            this.CmdWordBox = new System.Windows.Forms.TextBox();
+            this.PackEndBox = new System.Windows.Forms.ComboBox();
+            this.PackEnd = new System.Windows.Forms.Label();
+            this.CMDParm2 = new System.Windows.Forms.Label();
+            this.CMDWord = new System.Windows.Forms.Label();
+            this.CMDParm1 = new System.Windows.Forms.Label();
+            this.PackHeadBox = new System.Windows.Forms.ComboBox();
+            this.packHead = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.ComNumLabel = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -39,38 +56,32 @@
             this.OpenCom = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.packHead = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.CMDParm1 = new System.Windows.Forms.Label();
-            this.CMDWord = new System.Windows.Forms.Label();
-            this.CMDParm2 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.PackEnd = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.HEXSend = new System.Windows.Forms.CheckBox();
-            this.HEXDisney = new System.Windows.Forms.CheckBox();
             this.SendButton = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.SendTextBox = new System.Windows.Forms.TextBox();
             this.ClearSendButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SendGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SendGroupBox
             // 
-            this.SendGroupBox.Controls.Add(this.HEXDisney);
+            this.SendGroupBox.Controls.Add(this.ResetCmdButton);
+            this.SendGroupBox.Controls.Add(this.SendCMDButton);
+            this.SendGroupBox.Controls.Add(this.label1);
+            this.SendGroupBox.Controls.Add(this.IntervalCheck);
+            this.SendGroupBox.Controls.Add(this.IntervalTime);
+            this.SendGroupBox.Controls.Add(this.HEXDisplay);
             this.SendGroupBox.Controls.Add(this.HEXSend);
-            this.SendGroupBox.Controls.Add(this.textBox4);
-            this.SendGroupBox.Controls.Add(this.textBox3);
-            this.SendGroupBox.Controls.Add(this.textBox2);
-            this.SendGroupBox.Controls.Add(this.comboBox6);
+            this.SendGroupBox.Controls.Add(this.CMDParm1Box);
+            this.SendGroupBox.Controls.Add(this.CMDParm2Box);
+            this.SendGroupBox.Controls.Add(this.CmdWordBox);
+            this.SendGroupBox.Controls.Add(this.PackEndBox);
             this.SendGroupBox.Controls.Add(this.PackEnd);
             this.SendGroupBox.Controls.Add(this.CMDParm2);
             this.SendGroupBox.Controls.Add(this.CMDWord);
             this.SendGroupBox.Controls.Add(this.CMDParm1);
-            this.SendGroupBox.Controls.Add(this.comboBox2);
+            this.SendGroupBox.Controls.Add(this.PackHeadBox);
             this.SendGroupBox.Controls.Add(this.packHead);
             this.SendGroupBox.Location = new System.Drawing.Point(8, 14);
             this.SendGroupBox.Name = "SendGroupBox";
@@ -79,6 +90,172 @@
             this.SendGroupBox.TabStop = false;
             this.SendGroupBox.Text = "发送控制";
             this.SendGroupBox.Enter += new System.EventHandler(this.HVGroupBox_Enter);
+            // 
+            // ResetCmdButton
+            // 
+            this.ResetCmdButton.Location = new System.Drawing.Point(119, 203);
+            this.ResetCmdButton.Name = "ResetCmdButton";
+            this.ResetCmdButton.Size = new System.Drawing.Size(86, 27);
+            this.ResetCmdButton.TabIndex = 19;
+            this.ResetCmdButton.Text = "重置指令";
+            this.ResetCmdButton.UseVisualStyleBackColor = true;
+            this.ResetCmdButton.Click += new System.EventHandler(this.ResetCmdButton_Click);
+            // 
+            // SendCMDButton
+            // 
+            this.SendCMDButton.Location = new System.Drawing.Point(8, 202);
+            this.SendCMDButton.Name = "SendCMDButton";
+            this.SendCMDButton.Size = new System.Drawing.Size(86, 28);
+            this.SendCMDButton.TabIndex = 18;
+            this.SendCMDButton.Text = "发送指令";
+            this.SendCMDButton.UseVisualStyleBackColor = true;
+            this.SendCMDButton.Click += new System.EventHandler(this.SendCMDButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 155);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "间隔时间";
+            // 
+            // IntervalCheck
+            // 
+            this.IntervalCheck.AutoSize = true;
+            this.IntervalCheck.Location = new System.Drawing.Point(151, 157);
+            this.IntervalCheck.Name = "IntervalCheck";
+            this.IntervalCheck.Size = new System.Drawing.Size(72, 16);
+            this.IntervalCheck.TabIndex = 16;
+            this.IntervalCheck.Text = "启用间隔";
+            this.IntervalCheck.UseVisualStyleBackColor = true;
+            this.IntervalCheck.CheckedChanged += new System.EventHandler(this.IntervalCheck_CheckedChanged);
+            // 
+            // IntervalTime
+            // 
+            this.IntervalTime.Enabled = false;
+            this.IntervalTime.Location = new System.Drawing.Point(65, 152);
+            this.IntervalTime.Name = "IntervalTime";
+            this.IntervalTime.Size = new System.Drawing.Size(68, 21);
+            this.IntervalTime.TabIndex = 6;
+            this.IntervalTime.TextChanged += new System.EventHandler(this.IntervalTime_TextChanged);
+            this.IntervalTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IntervalTime_KeyPress);
+            // 
+            // HEXDisplay
+            // 
+            this.HEXDisplay.AutoSize = true;
+            this.HEXDisplay.Location = new System.Drawing.Point(151, 54);
+            this.HEXDisplay.Name = "HEXDisplay";
+            this.HEXDisplay.Size = new System.Drawing.Size(66, 16);
+            this.HEXDisplay.TabIndex = 14;
+            this.HEXDisplay.Text = "HEX显示";
+            this.HEXDisplay.UseVisualStyleBackColor = true;
+            this.HEXDisplay.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // HEXSend
+            // 
+            this.HEXSend.AutoSize = true;
+            this.HEXSend.Location = new System.Drawing.Point(151, 31);
+            this.HEXSend.Name = "HEXSend";
+            this.HEXSend.Size = new System.Drawing.Size(66, 16);
+            this.HEXSend.TabIndex = 13;
+            this.HEXSend.Text = "HEX发送";
+            this.HEXSend.UseVisualStyleBackColor = true;
+            // 
+            // CMDParm1Box
+            // 
+            this.CMDParm1Box.Location = new System.Drawing.Point(65, 76);
+            this.CMDParm1Box.Name = "CMDParm1Box";
+            this.CMDParm1Box.Size = new System.Drawing.Size(68, 21);
+            this.CMDParm1Box.TabIndex = 3;
+            this.CMDParm1Box.Leave += new System.EventHandler(this.CMDParm1Box_Leave);
+            // 
+            // CMDParm2Box
+            // 
+            this.CMDParm2Box.Location = new System.Drawing.Point(65, 100);
+            this.CMDParm2Box.Name = "CMDParm2Box";
+            this.CMDParm2Box.Size = new System.Drawing.Size(68, 21);
+            this.CMDParm2Box.TabIndex = 4;
+            this.CMDParm2Box.Leave += new System.EventHandler(this.CMDParm2Box_Leave);
+            // 
+            // CmdWordBox
+            // 
+            this.CmdWordBox.Location = new System.Drawing.Point(65, 53);
+            this.CmdWordBox.Name = "CmdWordBox";
+            this.CmdWordBox.Size = new System.Drawing.Size(68, 21);
+            this.CmdWordBox.TabIndex = 2;
+            this.CmdWordBox.Leave += new System.EventHandler(this.CmdWordBox_Leave);
+            // 
+            // PackEndBox
+            // 
+            this.PackEndBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PackEndBox.FormattingEnabled = true;
+            this.PackEndBox.Items.AddRange(new object[] {
+            "校验和",
+            "EE"});
+            this.PackEndBox.Location = new System.Drawing.Point(65, 126);
+            this.PackEndBox.Name = "PackEndBox";
+            this.PackEndBox.Size = new System.Drawing.Size(68, 20);
+            this.PackEndBox.TabIndex = 5;
+            this.PackEndBox.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
+            // 
+            // PackEnd
+            // 
+            this.PackEnd.AutoSize = true;
+            this.PackEnd.Location = new System.Drawing.Point(6, 129);
+            this.PackEnd.Name = "PackEnd";
+            this.PackEnd.Size = new System.Drawing.Size(29, 12);
+            this.PackEnd.TabIndex = 8;
+            this.PackEnd.Text = "包尾";
+            // 
+            // CMDParm2
+            // 
+            this.CMDParm2.AutoSize = true;
+            this.CMDParm2.Location = new System.Drawing.Point(6, 103);
+            this.CMDParm2.Name = "CMDParm2";
+            this.CMDParm2.Size = new System.Drawing.Size(35, 12);
+            this.CMDParm2.TabIndex = 6;
+            this.CMDParm2.Text = "参数2";
+            // 
+            // CMDWord
+            // 
+            this.CMDWord.AutoSize = true;
+            this.CMDWord.Location = new System.Drawing.Point(4, 56);
+            this.CMDWord.Name = "CMDWord";
+            this.CMDWord.Size = new System.Drawing.Size(41, 12);
+            this.CMDWord.TabIndex = 4;
+            this.CMDWord.Text = "命令字";
+            // 
+            // CMDParm1
+            // 
+            this.CMDParm1.AutoSize = true;
+            this.CMDParm1.Location = new System.Drawing.Point(6, 79);
+            this.CMDParm1.Name = "CMDParm1";
+            this.CMDParm1.Size = new System.Drawing.Size(35, 12);
+            this.CMDParm1.TabIndex = 2;
+            this.CMDParm1.Text = "参数1";
+            this.CMDParm1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // PackHeadBox
+            // 
+            this.PackHeadBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PackHeadBox.FormattingEnabled = true;
+            this.PackHeadBox.Items.AddRange(new object[] {
+            "AA"});
+            this.PackHeadBox.Location = new System.Drawing.Point(65, 27);
+            this.PackHeadBox.Name = "PackHeadBox";
+            this.PackHeadBox.Size = new System.Drawing.Size(68, 20);
+            this.PackHeadBox.TabIndex = 1;
+            // 
+            // packHead
+            // 
+            this.packHead.AutoSize = true;
+            this.packHead.Location = new System.Drawing.Point(6, 30);
+            this.packHead.Name = "packHead";
+            this.packHead.Size = new System.Drawing.Size(29, 12);
+            this.packHead.TabIndex = 0;
+            this.packHead.Text = "包头";
+            this.packHead.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox1
             // 
@@ -166,111 +343,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "串口参数控制";
             // 
-            // packHead
-            // 
-            this.packHead.AutoSize = true;
-            this.packHead.Location = new System.Drawing.Point(6, 30);
-            this.packHead.Name = "packHead";
-            this.packHead.Size = new System.Drawing.Size(29, 12);
-            this.packHead.TabIndex = 0;
-            this.packHead.Text = "包头";
-            this.packHead.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(53, 27);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(44, 20);
-            this.comboBox2.TabIndex = 1;
-            // 
-            // CMDParm1
-            // 
-            this.CMDParm1.AutoSize = true;
-            this.CMDParm1.Location = new System.Drawing.Point(6, 79);
-            this.CMDParm1.Name = "CMDParm1";
-            this.CMDParm1.Size = new System.Drawing.Size(35, 12);
-            this.CMDParm1.TabIndex = 2;
-            this.CMDParm1.Text = "参数1";
-            this.CMDParm1.Click += new System.EventHandler(this.label1_Click_1);
-            // 
-            // CMDWord
-            // 
-            this.CMDWord.AutoSize = true;
-            this.CMDWord.Location = new System.Drawing.Point(4, 56);
-            this.CMDWord.Name = "CMDWord";
-            this.CMDWord.Size = new System.Drawing.Size(41, 12);
-            this.CMDWord.TabIndex = 4;
-            this.CMDWord.Text = "命令字";
-            // 
-            // CMDParm2
-            // 
-            this.CMDParm2.AutoSize = true;
-            this.CMDParm2.Location = new System.Drawing.Point(6, 103);
-            this.CMDParm2.Name = "CMDParm2";
-            this.CMDParm2.Size = new System.Drawing.Size(35, 12);
-            this.CMDParm2.TabIndex = 6;
-            this.CMDParm2.Text = "参数2";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(53, 126);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(44, 20);
-            this.comboBox6.TabIndex = 9;
-            // 
-            // PackEnd
-            // 
-            this.PackEnd.AutoSize = true;
-            this.PackEnd.Location = new System.Drawing.Point(6, 129);
-            this.PackEnd.Name = "PackEnd";
-            this.PackEnd.Size = new System.Drawing.Size(29, 12);
-            this.PackEnd.TabIndex = 8;
-            this.PackEnd.Text = "包尾";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(53, 52);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(44, 21);
-            this.textBox2.TabIndex = 10;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(53, 100);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(44, 21);
-            this.textBox3.TabIndex = 11;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(53, 76);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(44, 21);
-            this.textBox4.TabIndex = 12;
-            // 
-            // HEXSend
-            // 
-            this.HEXSend.AutoSize = true;
-            this.HEXSend.Location = new System.Drawing.Point(139, 31);
-            this.HEXSend.Name = "HEXSend";
-            this.HEXSend.Size = new System.Drawing.Size(66, 16);
-            this.HEXSend.TabIndex = 13;
-            this.HEXSend.Text = "HEX发送";
-            this.HEXSend.UseVisualStyleBackColor = true;
-            // 
-            // HEXDisney
-            // 
-            this.HEXDisney.AutoSize = true;
-            this.HEXDisney.Location = new System.Drawing.Point(139, 52);
-            this.HEXDisney.Name = "HEXDisney";
-            this.HEXDisney.Size = new System.Drawing.Size(66, 16);
-            this.HEXDisney.TabIndex = 14;
-            this.HEXDisney.Text = "HEX显示";
-            this.HEXDisney.UseVisualStyleBackColor = true;
-            this.HEXDisney.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
             // SendButton
             // 
             this.SendButton.Location = new System.Drawing.Point(676, 336);
@@ -279,14 +351,16 @@
             this.SendButton.TabIndex = 15;
             this.SendButton.Text = "发送";
             this.SendButton.UseVisualStyleBackColor = true;
+            this.SendButton.Click += new System.EventHandler(this.SendButton_Click);
             // 
-            // textBox5
+            // SendTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(8, 336);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(654, 100);
-            this.textBox5.TabIndex = 10;
+            this.SendTextBox.Location = new System.Drawing.Point(8, 336);
+            this.SendTextBox.Multiline = true;
+            this.SendTextBox.Name = "SendTextBox";
+            this.SendTextBox.Size = new System.Drawing.Size(654, 100);
+            this.SendTextBox.TabIndex = 10;
+            this.SendTextBox.TextChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // ClearSendButton
             // 
@@ -298,6 +372,10 @@
             this.ClearSendButton.UseVisualStyleBackColor = true;
             this.ClearSendButton.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -305,7 +383,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ClearSendButton);
             this.Controls.Add(this.SendButton);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.SendTextBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.SendGroupBox);
@@ -333,21 +411,27 @@
         private System.Windows.Forms.Button OpenCom;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox PackHeadBox;
         private System.Windows.Forms.Label packHead;
         private System.Windows.Forms.Label CMDWord;
         private System.Windows.Forms.Label CMDParm1;
         private System.Windows.Forms.Label CMDParm2;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox PackEndBox;
         private System.Windows.Forms.Label PackEnd;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox CMDParm1Box;
+        private System.Windows.Forms.TextBox CMDParm2Box;
+        private System.Windows.Forms.TextBox CmdWordBox;
         private System.Windows.Forms.Button SendButton;
-        private System.Windows.Forms.CheckBox HEXDisney;
+        private System.Windows.Forms.CheckBox HEXDisplay;
         private System.Windows.Forms.CheckBox HEXSend;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox SendTextBox;
         private System.Windows.Forms.Button ClearSendButton;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox IntervalCheck;
+        private System.Windows.Forms.TextBox IntervalTime;
+        private System.Windows.Forms.Button ResetCmdButton;
+        private System.Windows.Forms.Button SendCMDButton;
     }
 }
 
